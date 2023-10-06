@@ -100,13 +100,13 @@ body {
 
 #hero-svg-left {
   position: absolute;
-  top: 35%;
+  top: 10%;
   left: 0;
 }
 
 #hero-svg-right {
   position: absolute;
-  top: 15%;
+  top: 4%;
   right: 0;
 }
 
@@ -187,9 +187,19 @@ body {
 }
 
 #hero-main-btn:hover {
-  /* box-shadow: 0px 0px 15px 0px #735CA8; */
+  /* box-shadow: 0px 0px 15px 0px #735CA8;
   background: #fff;
-  color: var(--accent-color);
+  color: var(--accent-color); */
+  background-color: #6044a0;
+  border-color: #6044a0;
+}
+
+#hero-main-btn:hover span {
+  transition: all 0.2s ease-in-out;
+}
+
+#hero-main-btn:hover span {
+  margin-left: 5px;
 }
 
 .overview {
