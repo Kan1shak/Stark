@@ -704,6 +704,23 @@ body {
 /* under 768px width  */
 @media screen and (max-width: 768px) {
 
+  .emphasis {
+    font-size: 40px;
+  }
+
+  .hero-heading {
+    font-size: 40px;
+  }
+
+  .features-heading {
+    font-size: 40px;
+  }
+
+  .overview-text {
+    font-weight: 500;
+    font-size: 32px;
+  }
+
   .overview {
     margin: 100px 10px 10px;
     padding: 100px 0px;
