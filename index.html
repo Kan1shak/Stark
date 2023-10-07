@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="index.js" defer></script>
     <title>Stark</title>
 </head>
 <body>
@@ -34,8 +35,35 @@
         <div class="login-btn-container">
             <div id="login-btn">LOGIN</div>
         </div>
+        <div class="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
     </nav>
-
+    <section class="hamburger-menu">
+        <div class="hamburger-links">
+            <div class="nav-link-item">
+                <a href="#">Home</a>
+            </div>
+            <div class="nav-link-item">
+                <a href="#">Services</a>
+            </div>
+            <div class="nav-link-item">
+                <a href="#">Tasks</a>
+            </div>
+            <div class="nav-link-item">
+                <a href="#">FAQ</a>
+            </div>
+            <div class="nav-link-item">
+                <a href="#">Connect</a>
+            </div>
+        </div>
+        <div class="hamburger-login-btn-container">
+            <p>Already a user? <a href="">Login</a></p>
+            <div id="hamburger-login-btn">Get Started -></div>
+        </div>  
+    </section>
     <main class="hero">
         <div class="hero-text">
             <p class="hero-sub-text">INTRODUCING STARK</p>
@@ -146,6 +174,9 @@
     <section class="whystark">
         <h2 id="why-heading">Why <span class="stark">Stark®?</span></h2>
         <div class="why-holder">
+            <div class="why-image">
+                <img src="images/why.png"  alt="Why Choose us?">
+            </div>
             <div class="why-text">
                 <div class="why-text-item">
                     <div class="why-text-heading">
@@ -233,9 +264,6 @@
                     </div>
                     <p class="why-text-desc">Build your reputation and trust in the community.</p>
                 </div>
-            </div>
-            <div class="why-image">
-                <img src="images/why.png" alt="Why Choose us?">
             </div>
         </div>
     </section>
