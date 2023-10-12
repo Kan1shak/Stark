@@ -40,7 +40,50 @@ body {
   font-weight: 700;
   backdrop-filter: blur(10px);
 }
+/** tasks dropdown **/
+.dropdown{
+  display:none;
+}
+.nav-link-item:hover .dropdown{
+  display: block;
+  position:absolute;
+  margin-top: 20px;
+  margin-left: -15px;
+  background-color: #735ca8;
+  border: #1b1b1b;
+  border-radius: 25px;
+}
+.nav-link-item:focus .dropdown{
+  display: block;
+  position:absolute;
+  margin-top: 20px;
+  margin-left: -15px;
+  background-color: #735ca8;
+  border: #1b1b1b;
+  border-radius: 25px;
+}
 
+
+.nav-link-item:hover .dropdown ul{
+  display:block;
+  margin:10px;
+}
+.nav-link-item:focus .dropdown ul{
+  display:block;
+  margin:10px;
+}
+
+.nav-link-item:hover .dropdown ul li{
+  width:150px;
+  padding:10px;
+  border-bottom:1px dotted #fff;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+.nav-link-item:hover .dropdown ul li:last-child{
+  border-bottom: none;
+}
 .hamburger {
   display: none;
   cursor: pointer;
