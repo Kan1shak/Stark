@@ -1,0 +1,297 @@
+.services-container {
+  padding: 100px;
+}
+
+.text{
+    text-align: left;
+    margin-left: 3%;
+    -webkit-text-fill-color: #fff;
+    text-decoration: overline #735ca8;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0.5rem;
+  }
+
+  .services-sub-heading {
+    margin-left: 3%;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 4rem;
+  }
+  /* CARDS */
+  .services{
+    margin-top: 3rem;
+    padding: 0px 20px;
+    display:block;
+
+  }
+  .cards{
+    display: inline-block;
+    margin-left: 3%;
+    margin-right:5%;
+    /* padding-bottom: ; */
+    height:50%;
+    width:40%;
+    background-image: url(../images/eHQ9anBn.png);
+    background-blend-mode: color;
+    background-position:center ;
+    background-size: cover;
+    border-radius: 10px;
+  }
+  .cards:hover{
+    box-shadow: 3px 3px 3px 3px #000000;
+    transition: .25s;
+    cursor: pointer;
+  }
+  .cards:hover .overlay{
+    background-color: #00000093;
+  }
+  .cards1:hover .overlay{
+    background-color: #00000093;
+  }
+  .cards2:hover .overlay{
+    background-color: #00000093;
+  }
+  .cards3:hover .overlay{
+    background-color: #00000093;
+  }
+  .cards4:hover .overlay{
+    background-color: #00000093;
+  }
+  .cards5:hover .overlay{
+    background-color: #00000093;
+  }
+  .cards6:hover .overlay{
+    background-color: #00000093;
+  }
+  .cards7:hover .overlay{
+    background-color: #00000093;
+  }
+  .title{
+     text-align: center;
+    text-shadow: #313131;
+    text-decoration: solid;
+    -webkit-text-fill-color: #fcfbfd;
+
+  }
+  .disc{
+    padding-top: 5%;
+    text-align: center;
+    -webkit-text-fill-color: #fbfafd;
+  }
+  
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #00000059;
+    transition: all 0.2s ease-in-out;
+}
+
+.card {
+  margin-bottom: 3rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.cards1{
+  display: inline-block;
+  margin-left: 7%;
+  margin-right:3%;
+  margin-top: 15px;
+  height:50%;
+  width:40%;
+  background-image: url(../images/2.png);
+  background-blend-mode: color;
+  background-position:center ;
+  background-size: cover;
+  border-radius: 10px;
+}
+.cards1:hover{
+  box-shadow: 3px 3px 3px 3px #000000;
+  cursor: pointer;
+}
+.cards2{
+  display: inline-block;
+  margin-left: 3%;
+  margin-right:5%;
+  margin-top: 15px;
+  height:50%;
+  width:40%;
+  background-image: url(../images/3.png);
+  background-blend-mode: color;
+  background-position:center ;
+  background-size: cover;
+  border-radius: 10px;
+}
+.cards2:hover{
+  box-shadow: 3px 3px 3px 3px #000000;
+  cursor: pointer;
+}
+.cards3{
+  display: inline-block;
+  margin-left: 7%;
+  margin-right:3%;
+  margin-top: 15px;
+  height:50%;
+  width:40%;
+  background-image: url(../images/LmpwZw.png);
+  background-blend-mode: color;
+  background-position:center ;
+  background-size: cover;
+  border-radius: 10px;
+}
+.cards3:hover{
+  box-shadow: 3px 3px 3px 3px #000000;
+  cursor: pointer;
+}
+.cards4{
+  display: inline-block;
+  margin-left: 3%;
+  margin-right:5%;
+  margin-top: 15px;
+  height:50%;
+  width:40%;
+  background-image: url(../images/ZGUuanBn.png);
+  background-blend-mode: color;
+  background-position:center ;
+  background-size: cover;
+  border-radius: 10px;
+}
+.cards4:hover{
+  box-shadow: 3px 3px 3px 3px #000000;
+  cursor: pointer;
+}
+.cards5{
+  display: inline-block;
+  margin-left: 7%;
+  margin-right:3%;
+  margin-top: 15px;
+  height:50%;
+  width:40%;
+  background-image: url(../images/d2VicA.png);
+  background-blend-mode: color;
+  background-position:center ;
+  background-size: cover;
+  border-radius: 10px;
+}
+.cards5:hover{
+  box-shadow: 3px 3px 3px 3px #000000;
+  cursor: pointer;
+}
+.cards6{
+  display: inline-block;
+  margin-left: 3%;
+  margin-right:5%;
+  margin-top: 15px;
+  height:50%;
+  width:40%;
+  background-image: url(../images/JmV4dD1qcGc.png);
+  background-blend-mode: color;
+  background-position:center ;
+  background-size: cover;
+  border-radius: 10px;
+}
+.cards6:hover{
+  box-shadow: 3px 3px 3px 3px #000000;
+  cursor: pointer;
+}
+.cards7{
+  display: inline-block;
+  margin-left: 7%;
+  margin-right:3%;
+  margin-top: 15px;
+  height:50%;
+  width:40%;
+  background-image: url(../images/5.png);
+  background-blend-mode: color;
+  background-position:center ;
+  background-size: cover;
+  border-radius: 10px;
+}
+.cards7:hover{
+  box-shadow: 3px 3px 3px 3px #000000;
+  cursor: pointer;
+}
+.more{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7%;
+}
+.btn{
+  padding: 2% 10%;
+  text-align: left;
+  font-size: 20px;
+  -webkit-text-fill-color: black;
+  background: transparent;
+}
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

@@ -68,7 +68,7 @@ app.get("/",(req,res) =>{
 
 app.get("/login",(req,res)=>{
 
-    res.render("/home/akshatb/login/views/login.ejs");
+    res.render("/home/akshatb/Stark/src/views/login.ejs");
 })
 
 app.get("/done",(req,res)=>{
@@ -89,7 +89,7 @@ app.get("/login",isPresent,(req,res)=>{
 }
 )
 app.get("/register", (req,res)=>{
-    res.render("/home/akshatb/login/views/register.ejs");
+    res.render("/home/akshatb/Stark/src/views/register.ejs");
 })
 app.post("/register",(req,res)=>{
 

@@ -1,0 +1,90 @@
+.footer {
+    margin: 100px 75px 0;
+    padding: 65px 65px 35px;
+    border-radius: 50px 50px 0px 0px;
+    background: #313131;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-links {
+    display: flex;
+    padding-bottom: 100px;
+    border-bottom: solid 1px #D1D1D1;
+  }
+  
+  .footer-link-coloumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    color: #D1D1D1;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+  
+  .footer-link-coloumn .footer-link-heading {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
+  
+  .footer-link-coloumn .footer-link {
+    margin-bottom: 10px;
+    color: #D1D1D1;
+    text-decoration: none;
+  }
+  
+  .footer-link-coloumn .footer-link:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 36px;
+  }
+  
+  .footer-bottom .app-name {
+    color: #D1D1D1;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+  
+  .footer-bottom .app-name p span.stark {
+    font-size: 20px;
+  }
+  
+  .footer-bottom .legal a{
+    font-size: 20px;
+    color: #D1D1D1;
+    text-decoration: none;
+    margin-left: 36px;
+  }
+  
+  .footer-bottom .legal a:hover {
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 768px) {
+  .footer {
+    margin: 100px 15px 0;
+    padding: 65px 40px 35px;
+    border-radius: 50px 50px 0px 0px;
+    background: #313131;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+}

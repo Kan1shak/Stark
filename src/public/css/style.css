@@ -419,20 +419,20 @@ body {
 }
 
 .features-image-container.collab {
-  background: url(images/collab.jpeg);
+  background: url(../images/collab.jpeg);
   background-size: cover;
   background-position: center 20%;
 }
 
 .features-image-container.hire {
-  background: url(images/hire.jpeg);
+  background: url(../images/hire.jpeg);
   background-size: cover;
   background-position: center 20%;
   background-repeat: no-repeat;
 }
 
 .features-image-container.earn {
-  background: url(images/earn.jpeg);
+  background: url(../images/earn.jpeg);
   background-size: cover;
   background-position: center 20%;
   background-repeat: no-repeat;
