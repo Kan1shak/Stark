@@ -150,7 +150,12 @@ body {
   border-radius: 90px;
 }
 
+.login-btn-container{
+  text-decoration: none;
+}
+
 .login-btn-container #login-btn {
+  text-decoration: none;
   background: var(--accent-color);
   color: #fff;
   padding: 0.8rem 1.5rem;
@@ -165,6 +170,7 @@ body {
 }
 
 .login-btn-container #login-btn:hover {
+  text-decoration: none;
   border-radius: 10px;
 }
 

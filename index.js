@@ -5,12 +5,18 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
+
 app.set("view engine","ejs");
 let user;
+let userName;
+
 // setting Middlewares
-app.use(express.static(path.join("/home/akshatb/login/public")));
+
+app.use(express.static(path.join("/home/akshatb/Stark/src/public")));
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+
+// login page -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 const isPresent =(req,res,next) =>{
       if(token){
@@ -55,7 +61,12 @@ const messageSchema= new mongoose.Schema({
 
 const users = mongoose.model("userdatas",messageSchema)
 
-app.get("/",(req,res)=>{
+app.get("/",(req,res) =>{
+
+    res.render("/home/akshatb/Stark/src/views/index.ejs");
+})
+
+app.get("/login",(req,res)=>{
 
     res.render("/home/akshatb/login/views/login.ejs");
 })
@@ -84,10 +95,10 @@ app.post("/register",(req,res)=>{
 
     (req.body);
     const userData= {name:req.body.Name,email:req.body.email,username:req.body.username,password:req.body.password};
-
+    
     users.create(userData);
 
-    res.redirect("/done");
+    res.redirect("/login");
 
 })
 
@@ -97,9 +108,32 @@ app.post("/login",check,(req,res)=>{
     maxAge: 99999999,
     }
     )
-    res.send("YOU ARE LOGGED IN");
+    res.redirect("/afterhome");
 }
 )
+
+// login page--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// after login-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+app.get("/afterhome",(req,res)=>{
+
+    userName=user.username;
+    res.render("/home/akshatb/Stark/src/views/afterhome.ejs",{userName});
+})
+
+app.get("/profile",(req,res)=>{
+
+    res.send("profile");
+})
+
+
+//after login-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 app.listen(3000,()=>{
 
