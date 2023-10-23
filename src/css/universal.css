@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    scroll-behavior: smooth;
+  }
+  
+  :root {
+    --accent-color: #735ca8;
+    --background-color: #1b1b1b;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+    background: #1b1b1b;
+    color: #fff;
+    position: relative;
+  }
+  
+  .stark {
+    color: var(--accent-color);
+    font-family: Dela Gothic One;
+    font-size: 40px;
+    font-weight: 1;
+  }
