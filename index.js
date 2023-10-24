@@ -1,8 +1,9 @@
 import  express  from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
-import loginrouter from "./routes/login.js"
-import servicerouter from "./routes/services.js"
+import loginrouter from "./routes/login.js";
+import servicerouter from "./routes/services.js";
+import connectrouter from "./routes/connect.js";
 import { isPresent } from "./controllers/login.js";
 import { user } from "./controllers/login.js";
 import {connectDB} from "./data/database.js";
@@ -31,7 +32,7 @@ app.use(express.static(__dirname + '/views'));
 
 app.use(loginrouter);
 app.use(servicerouter);
-
+app.use(connectrouter);
 // before login ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 app.get("/",isPresent,(req,res) =>{
@@ -65,12 +66,29 @@ app.get("/profile",(req,res)=>{
 // services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 app.get("/afterhome/services",(req,res)=>{
-
+    let {token}=req.cookies;
     let userName = user.username;
-    console.log(userName);
+    if(token){
     res.render("servicesafter",{userName});
-})
-
+    }
+    else{
+        res.render("services");
+    }
+}
+)
+app.get("/services",(req,res)=>{
+    let {token}=req.cookies;
+    if(!token)
+    return res.render("services");
+    let userName = user.username;
+    if(token){
+    res.render("servicesafter",{userName});
+    }
+    else{
+        res.render("services");
+    }
+}
+)
 // services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 app.listen(3000,()=>{

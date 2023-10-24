@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head'); %>
+<link rel="stylesheet" href="css/servicedetail.css">
+<title>services</title>
+</head>
+<body>
+    <%- include('./partials/nav'); %>
+    <section id="userProfiles">
+        <h2 class="userProfile-heading">Find Collaborators</h2>
+        <p class="userProfile-sub">Find projects, share visions, and goals, and join others passionate about similar projects.</p>
+        <div class="user-card-holder">
+                <div class="user-card">
+                    <div class="user-image-holder"><img src="images/user.jpg" alt="name %>"></div>
+                    <div class="user-card-text">
+                        <h3>name %></h3>
+                        <p>Skills:  
+                            <span class="skill-border">
+                            </span>
+                        </p>
+                    </div>
+                    <div class="connect-button">
+                        <a href=>Connect</a>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="projectListings">
+        <div class="project-list-heading">
+            <div class="project-list-head-text">
+                <h2 class="projectListings-heading">Available Projects</h2>
+                <p class="projectListings-sub">Choose the right project for you from the list of already published projects.</p>
+            </div>
+            <div class="project-list-head-button">
+                <a href="connect/new">Create Project</a>
+            </div>
+        </div>
+        <div class="project-card-holder">
+                <div class="project-card">
+                    <p><span class="project-text-sub"></p>
+                    <p><span class="project-text-sub">Description: </span></p>
+                    <p><span class="project-text-sub">Skills Needed: </span>
+                        <span class="skill-border">
+                        </span>
+                    </p>
+                    <p><span class="project-text-sub">Posted By: </span><a href="#"></a></p>
+                    <div class="collab-button">
+                        <a href="#">collaborate</a>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <%- include('./partials/footer'); %>
+</body>
+</html>

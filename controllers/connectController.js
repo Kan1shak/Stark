@@ -23,6 +23,8 @@ export const isPresent =async(req,res,next) =>{
 
 export const connect_get = async (req,res)=>{
     let {token} = req.cookies;
+    if(!token)
+    return res.render("connect1");
     const decoded=jwt.verify(token,"arimeee");
     const userName = await getUsername(decoded._id);
     let projectsList;
