@@ -2,14 +2,14 @@ import  express  from "express";
 import path from "path";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 const app = express();
 
 
-app.set("view engine","ejs");
-let user;
-let userName;
 
+app.set("view engine","ejs");
 // setting Middlewares
 
 app.use(express.static(path.join("/home/akshatb/Stark/src/public")));
@@ -18,31 +18,39 @@ app.use(cookieParser());
 
 // login page -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-const isPresent =(req,res,next) =>{
+let user;
+const isPresent =async(req,res,next) =>{
+    let {token} = req.cookies;
       if(token){
-        next();
+
+        const decoded=jwt.verify(token,"arimeee");
+        req.user = await users.findById(decoded._id);
+        res.redirect("/afterhome");
       }
       else{
-        res.redirect("/login");
+        next();
+        user=null;
       }
 }
 
 const check =async(req,res,next)=>{
 
-    let a={username:req.body.USERNAME,password:req.body.PASSWORD}
-
-    const b = users.findOne(a).then((b)=>{
-        if(b)
+    const username= req.body.USERNAME;
+    const password= req.body.PASSWORD;
+    let check = await users.findOne({username});
+        if(check)
         {
-            user = b;
+            user=check;
+            const match= await bcrypt.compare(password,user.password);
+            if(match)
             next();
+            else
+            res.render("/home/akshatb/Stark/src/views/login.ejs",{username,message:"Incorrect Password"});
         }
         else{
             res.redirect("/register");
         }
-    });
-
-}
+     }
 
 mongoose.connect("mongodb://localhost:27017",{
     dbName:"login",
@@ -56,12 +64,13 @@ const messageSchema= new mongoose.Schema({
     email:String,
     username:String,
     password:String,
+    profile:Object,
 
 })
 
 const users = mongoose.model("userdatas",messageSchema)
 
-app.get("/",(req,res) =>{
+app.get("/",isPresent,(req,res) =>{
 
     res.render("/home/akshatb/Stark/src/views/index.ejs");
 })
@@ -70,32 +79,24 @@ app.get("/login",(req,res)=>{
 
     res.render("/home/akshatb/Stark/src/views/login.ejs");
 })
-
-app.get("/done",(req,res)=>{
-
-    res.render("/home/akshatb/login/views/done.ejs");
-})
-
-app.get("/login",(req,res)=>{
-    
-
-      res.render("/home/akshatb/login/views/login.ejs");
-}
-)
-app.get("/login",isPresent,(req,res)=>{
-    
-
-    res.render("/done");
-}
-)
 app.get("/register", (req,res)=>{
     res.render("/home/akshatb/Stark/src/views/register.ejs");
 })
-app.post("/register",(req,res)=>{
+app.post("/register",async(req,res)=>{
 
     (req.body);
-    const userData= {name:req.body.Name,email:req.body.email,username:req.body.username,password:req.body.password};
+
+    let userData= {name:req.body.Name,email:req.body.email,username:req.body.username,password:req.body.password,profile:{}};
+    let email=userData.email;
+    let user = await users.findOne({email});
+    if(user)
+    {
+        return res.redirect("/login");
+    }
+    const hashedpassword = await bcrypt.hash(userData.password,10);
     
+    userData= {name:req.body.Name,email:req.body.email,username:req.body.username,password:hashedpassword,profile:{}};
+
     users.create(userData);
 
     res.redirect("/login");
@@ -103,12 +104,14 @@ app.post("/register",(req,res)=>{
 })
 
 app.post("/login",check,(req,res)=>{
-    res.cookie("token", user._id,{
+
+    const token = jwt.sign({_id:user._id},"arimeee");
+
+    res.cookie("token", token,{
     httpOnly:true,
     maxAge: 99999999,
-    }
-    )
-    res.redirect("/afterhome");
+    })
+    res.redirect("/");
 }
 )
 
@@ -117,9 +120,14 @@ app.post("/login",check,(req,res)=>{
 // after login-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 app.get("/afterhome",(req,res)=>{
-
-    userName=user.username;
-    res.render("/home/akshatb/Stark/src/views/afterhome.ejs",{userName});
+    let {token}=req.cookies;
+    let userName = user.username;
+    if(token)
+    {
+        res.render("/home/akshatb/Stark/src/views/afterhome.ejs",{userName});
+    }
+    else
+        res.redirect("/");
 })
 
 app.get("/profile",(req,res)=>{
