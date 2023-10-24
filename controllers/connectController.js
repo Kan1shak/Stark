@@ -1,5 +1,5 @@
-import { projects } from '/home/akshatb/Stark/src/models/connect.js';
-import { users } from '/home/akshatb/Stark/src/models/users.js';
+import { projects } from '/home/akshatb/Stark/models/connect.js';
+import { users } from '/home/akshatb/Stark/models/users.js';
 import jwt from "jsonwebtoken"; 
 
 const getUsername = async (id)=>{
@@ -37,14 +37,14 @@ export const connect_get = async (req,res)=>{
     }).catch((err)=>{
         console.log(err);
     });
-    res.render("/home/akshatb/Stark/src/views/connect",{projectsList:projectsList,usersList:usersList,userName:userName});
+    res.render("connect",{projectsList:projectsList,usersList:usersList,userName:userName});
 }
 
 export  const connect_new_get = async (req,res)=>{
     let {token} = req.cookies;
     const decoded=jwt.verify(token,"arimeee");
     const userName = await getUsername(decoded._id);
-    res.render("/home/akshatb/Stark/src/views/newConnect", {userName:userName});
+    res.render("newConnect", {userName:userName});
 }
 
 export  const connect_new_post = async (req,res)=>{
@@ -73,7 +73,7 @@ export  const connect_user_one_get = async (req,res)=>{
     const userName = await getUsername(decoded._id);
     users.findById(req.params.id).populate("projects").then((a)=>{
         if (a) {
-        res.render("/home/akshatb/Stark/src/views/userConnect",{user:a, userName:userName});
+        res.render("userConnect",{user:a, userName:userName});
         } else {
             res.redirect("/connect");
         }
@@ -88,7 +88,7 @@ export  const connect_project_one_get = async (req,res)=>{
     const decoded=jwt.verify(token,"arimeee");
     const userName = await getUsername(decoded._id);
     projects.findById(req.params.id).populate('user').then((a)=>{
-        res.render("/home/akshatb/Stark/src/views/projectConnect",{project:a, userName:userName});        
+        res.render("projectConnect",{project:a, userName:userName});        
     })
     .catch((err)=>{
         console.log(err);

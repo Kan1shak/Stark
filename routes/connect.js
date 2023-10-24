@@ -1,6 +1,6 @@
 import express  from 'express';
 const router = express.Router();
-import { connect_get, connect_new_get, connect_new_post, connect_user_one_get, connect_project_one_get } from '/home/akshatb/Stark/src/controllers/connectController.js';
+import { connect_get, connect_new_get, connect_new_post, connect_user_one_get, connect_project_one_get } from '/home/akshatb/Stark/controllers/connectController.js';
 // const isPresent =(req,res,next) =>{
 //    let token = ;
 //     if(token){

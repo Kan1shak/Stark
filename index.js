@@ -1,24 +1,31 @@
 import  express  from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
-import loginrouter from "./src/routes/login.js"
-import servicerouter from "./src/routes/services.js"
-import { isPresent } from "./src/controllers/login.js";
-import { user } from "./src/controllers/login.js";
-import {connectDB} from "./src/data/database.js";
-import  connectRouter  from "./src/routes/connect.js"
+import loginrouter from "./routes/login.js"
+import servicerouter from "./routes/services.js"
+import { isPresent } from "./controllers/login.js";
+import { user } from "./controllers/login.js";
+import {connectDB} from "./data/database.js";
+import  connectRouter  from "./routes/connect.js"
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
 const app = express();
 
 connectDB();
 
 app.set("view engine","ejs");
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 // setting Middlewares
 
-app.use(express.static(path.join("/home/akshatb/Stark/src/public")));
+app.use(express.static(path.join("/home/akshatb/Stark/public")));
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use("/connect",connectRouter);
+app.use(express.static(__dirname + '/views'));
 
 // setting routes
 
@@ -29,7 +36,7 @@ app.use(servicerouter);
 
 app.get("/",isPresent,(req,res) =>{
 
-    res.render("/home/akshatb/Stark/src/views/index.ejs");
+    res.render("index");
 })
 
 // before login ---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -41,7 +48,7 @@ app.get("/afterhome",(req,res)=>{
     let userName = user.username;
     if(token)
     {
-        res.render("/home/akshatb/Stark/src/views/afterhome.ejs",{userName});
+        res.render("afterhome",{userName});
     }
     else
         res.redirect("/");
@@ -61,7 +68,7 @@ app.get("/afterhome/services",(req,res)=>{
 
     let userName = user.username;
     console.log(userName);
-    res.render("/home/akshatb/Stark/src/views/servicesafter.ejs",{userName});
+    res.render("servicesafter",{userName});
 })
 
 // services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------

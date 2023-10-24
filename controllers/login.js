@@ -28,18 +28,18 @@ export const check =async(req,res,next)=>{
             if(match)
             next();
             else
-            res.render("/home/akshatb/Stark/src/views/login.ejs",{username:username,message:"Incorrect Password"});
+            res.render("login",{username:username,message:"Incorrect Password"});
         }
         else{
             res.redirect("/register");
         }
      }
 export const login =(req,res)=>{
-    res.render("/home/akshatb/Stark/src/views/login.ejs");
+    res.render("login");
 }
 
 export const register = (req,res)=>{
-    res.render("/home/akshatb/Stark/src/views/register.ejs");
+    res.render("register");
 }
 export const login_post = (req,res)=>{
 
