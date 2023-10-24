@@ -1,0 +1,40 @@
+.project-card-holder > .project-card {
+    width: 400px;
+}
+
+#profile {
+    padding: 30px 100px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+.profile-header-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.profile-body-text h3+p {
+    margin-bottom: 15px;
+}
+
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-body-text .project-heading {
+    margin-top: 60px;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 700;
+    color: #c8abf3;
+}

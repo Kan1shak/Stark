@@ -36,7 +36,7 @@ input:focus, textarea:focus {
 }
 
 input, textarea {
-    width: 300px;
+    width: 67.5vw;
     background: #3b3b3b;
 }
 
