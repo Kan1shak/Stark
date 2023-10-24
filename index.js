@@ -1,18 +1,24 @@
-import  express  from "express";
-import path from "path";
-import mongoose from "mongoose";
-import cookieParser from "cookie-parser";
+const express = require('express');
+const path = require('path');
+const mongoose = require('mongoose');
+const cookieParser = require("cookie-parser");
+// moved the user model to a separate file and import it here
+const users = require("./src/models/users");
+
 
 const app = express();
 
+const dirname = path.resolve();
 
 app.set("view engine","ejs");
+app.set("views", path.join(dirname, "src/views"));
+
 let user;
 let userName;
 
 // setting Middlewares
 
-app.use(express.static(path.join("/home/akshatb/Stark/src/public")));
+app.use(express.static(path.join(dirname, "src/public")));
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
@@ -50,46 +56,28 @@ mongoose.connect("mongodb://localhost:27017",{
 }).then(()=> console.log("DATABASE CONNECTED"))
 .catch(()=>console.log('e'));
 
-const messageSchema= new mongoose.Schema({
-
-    name:String,
-    email:String,
-    username:String,
-    password:String,
-
-})
-
-const users = mongoose.model("userdatas",messageSchema)
 
 app.get("/",(req,res) =>{
 
-    res.render("/home/akshatb/Stark/src/views/index.ejs");
+    res.render("index");
 })
 
 app.get("/login",(req,res)=>{
 
-    res.render("/home/akshatb/Stark/src/views/login.ejs");
+    res.render("login");
 })
 
 app.get("/done",(req,res)=>{
 
-    res.render("/home/akshatb/login/views/done.ejs");
+    res.render("done");
 })
 
-app.get("/login",(req,res)=>{
-    
-
-      res.render("/home/akshatb/login/views/login.ejs");
-}
-)
 app.get("/login",isPresent,(req,res)=>{
-    
-
     res.render("/done");
-}
-)
+})
+
 app.get("/register", (req,res)=>{
-    res.render("/home/akshatb/Stark/src/views/register.ejs");
+    res.render("register");
 })
 app.post("/register",(req,res)=>{
 
@@ -119,7 +107,7 @@ app.post("/login",check,(req,res)=>{
 app.get("/afterhome",(req,res)=>{
 
     userName=user.username;
-    res.render("/home/akshatb/Stark/src/views/afterhome.ejs",{userName});
+    res.render("afterhome",{userName});
 })
 
 app.get("/profile",(req,res)=>{
@@ -134,7 +122,7 @@ app.get("/profile",(req,res)=>{
 
 app.get("/services",(req,res)=>{
 
-    res.render("/home/akshatb/Stark/src/views/services.ejs");
+    res.render("services");
 })
 // services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
