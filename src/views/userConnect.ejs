@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('./partials/head'); %>
+        <link rel="stylesheet" href="/css/connect.css">
+        <link rel="stylesheet" href="/css/userProfile.css">
+        <title>User Profile</title>
+    </head>
+    <body>
+        <%- include('./partials/nav'); %>
+        <section id="profile">
+            <div class="profile-header">
+                <div class="profile-header-image">
+                    <img src="/images/user.jpg" alt="<%= user.name %>">
+                </div>
+                <div class="profile-header-text">
+                    <h2><%= user.name %></h2>
+                    <p><%= user.bio || 'No Bio Provided'%></p>
+                </div>
+            </div>
+            <div class="profile-body">
+                <div class="profile-body-text">
+                    <h3>Skills</h3>
+                    <p>
+                        <% if(user.skills.length > 0) { %>
+                            <% for(var i=0; i<user.skills.length; i++) { %>
+                                <span class="skill-border">
+                                    <%= user.skills[i] %>
+                                </span>
+                                <% } %>
+                        <% } else { %>
+                            No Skill data provided
+                        <% } %>
+                    </p>
+                    <h3>Location</h3>
+                    <p><%= user.location || 'No Location provided' %></p>
+                    <h3>Website</h3>
+                    <p><%= user.website || 'No Website Provided'%></p>
+                    <h3>Contact</h3>
+                    <p><%= user.email || 'No Email Provided'%></p>
+                    <h3 class="project-heading">Projects</h3>
+                </div>
+                <div class="profile-body-projects">
+                    <% if(user.projects.length > 0) { %>
+                        <div class="project-card-holder">
+                            <% for(var i=0; i<user.projects.length; i++) { %>
+                                <div class="project-card">
+                                    <p><span class="project-text-sub"><%= user.projects[i].name %></p>
+                                    <p><span class="project-text-sub">Description: </span><%= user.projects[i].description %></p>
+                                    <p><span class="project-text-sub">Skills Needed: </span>
+                                        <% for(var j=0; j<user.projects[i].skills.length; j++) { %>
+                                        <span class="skill-border">
+                                            <%= user.projects[i].skills[j] %>
+                                        </span>
+                                        <% } %>
+                                    </p>
+                                    <div class="collab-button">
+                                        <a href="/connect/project/<%= user.projects[i].projectId %>">Collaborate</a>
+                                    </div>
+                                </div>
+                            
+                            <% } %>
+                        </div>
+                    <% } else { %>
+                        <p>No projects found</p>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+
+        <%- include('./partials/footer'); %>
+    </body>
+</html>

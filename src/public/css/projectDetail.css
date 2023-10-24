@@ -1,0 +1,53 @@
+.profile-header-text h2{
+    color: var(--accent-color);
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.profile-header-text p {
+    font-size: 20px;
+}
+
+.profile-header {
+    padding: 30px 13vw;
+    margin: 0 20px;
+}
+
+.profile-owner-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.profile-owner-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.profile-body{
+    gap: 20px;
+}
+
+.profile-body-btn a{
+    background: var(--accent-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 32px;
+    font-size: 1rem;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 600;
+    border: 1px solid #00000000;
+    transition: all 0.2s ease-in-out;
+}
+
+.profile-body-btn a:hover {
+    border-radius: 20px;
+    background-color: #6044a0;
+}
+
+.profile-body-text p:last-child {
+    font-style: italic;
+    text-align: center;
+    margin: 50px 0 10px;
+}

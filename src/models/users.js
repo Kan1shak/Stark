@@ -6,7 +6,10 @@ const messageSchema= new mongoose.Schema({
     email:String,
     username:String,
     password:String,
-    profile:Object,
+    profile: Object,
+    projects: [Object],
+    skills: [String],
+    services: [Object],
 
 })
 

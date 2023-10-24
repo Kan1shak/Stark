@@ -28,7 +28,7 @@ export const check =async(req,res,next)=>{
             if(match)
             next();
             else
-            res.render("/home/akshatb/Stark/src/views/login.ejs",{username,message:"Incorrect Password"});
+            res.render("/home/akshatb/Stark/src/views/login.ejs",{username:username,message:"Incorrect Password"});
         }
         else{
             res.redirect("/register");

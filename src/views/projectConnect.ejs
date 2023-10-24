@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('./partials/head'); %>
+        <link rel="stylesheet" href="/css/connect.css">
+        <link rel="stylesheet" href="/css/userProfile.css">
+        <link rel="stylesheet" href="/css/projectDetail.css">
+        <title>Project Details</title>
+    </head>
+    <body>
+        <%- include('./partials/nav'); %>
+        <section id="profile">
+            <div class="profile-header">
+                <div class="profile-header-image">
+                    <img src="/images/project.jpg" alt="<%= project.name %>">
+                </div>
+                <div class="profile-header-text">
+                    <h2><%= project.name %></h2>
+                    <p><%= project.description || 'No Description Provided'%></p>
+                </div>
+            </div>
+            <div class="profile-body">
+                <div class="profile-body-text">
+                    <h3>Skills Needed</h3>
+                    <p>
+                        <% for(var i=0; i<project.skills.length; i++) { %>
+                        <span class="skill-border">
+                            <%= project.skills[i] %>
+                        </span>
+                        <% } %>
+                    </p>
+                    <h3>Project Owner</h3>
+                    <p><a href="/connect/user/<%= project.user._id %>" class="profile-owner-link"><%= project.user.username || 'No Owner Provided' %></a></p>
+                    <h3>Website</h3>
+                    <p><%= project.website || 'No Website Provided'%></p>
+                    <h3>Contact</h3>
+                    <p><%= project.user.email || 'No Email Provided'%></p>
+
+                    <p>Do you have what it takes?</p>
+                </div>
+                <div class="profile-body-btn">
+                    <a href="mailto:<%= project.user.email %>?subject=Request to collaborate on <%= project.name %>">Collaborate Now!</a>
+                </div>
+            </div>
+        </section>
+
+        <%- include('./partials/footer'); %>
+    </body>
+</html>
