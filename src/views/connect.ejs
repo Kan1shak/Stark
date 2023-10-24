@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head'); %>
+<link rel="stylesheet" href="css/connect.css">
+<title>Connect</title>
+</head>
+<body>
+    <%- include('./partials/nav'); %>
+    <section id="userProfiles">
+        <h2 class="userProfile-heading">Find Collaborators</h2>
+        <p class="userProfile-sub">Find projects, share visions, and goals, and join others passionate about similar projects.</p>
+        <div class="user-card-holder">
+            <% for(var i=0; i<usersList.length; i++) { %>
+                <div class="user-card">
+                    <div class="user-image-holder"><img src="images/user.jpg" alt="<%= usersList[i].name %>"></div>
+                    <div class="user-card-text">
+                        <h3><%= usersList[i].name %></h3>
+                        <p>Skills:  
+                            <% for(var j=0; j<usersList[i].skills.length; j++) { %>
+                            <span class="skill-border">
+                                <%= usersList[i].skills[j] %>
+                            </span>
+                            <% } %>
+                        </p>
+                    </div>
+                    <div class="connect-button">
+                        <a href="/user/<%= usersList[i]._id %>">Connect</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <section id="projectListings">
+        <h2 class="projectListings-heading">Available Projects</h2>
+        <p class="projectListings-sub">Choose the right project for you from the list of already published projects.</p>
+        <div class="project-card-holder">
+            <div class="project-card">
+                <p><span class="project-text-sub">Name: </span>E-commerce Website Development</p>
+                <p><span class="project-text-sub">Description: </span>Build an e-commerce website for a small business.</p>
+                <p><span class="project-text-sub">Skills Needed: </span>Web Development, Graphic Design</p>
+                <div class="collab-button">
+                    <a href="#">Collaborate</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <p><span class="project-text-sub">Name: </span>Community Event Planning</p>
+                <p><span class="project-text-sub">Description: </span>Plan and organize a community event for a local charity.</p>
+                <p><span class="project-text-sub">Skills Needed: </span>Event Planning, Volunteering, Marketing</p>
+                <div class="collab-button">
+                    <a href="#">Collaborate</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <p><span class="project-text-sub">Name: </span>Data Analysis for Research Project</p>
+                <p><span class="project-text-sub">Description: </span>Analyze data for a scientific research project.</p>
+                <p><span class="project-text-sub">Skills Needed: </span>Data Analysis, Programming</p>
+                <div class="collab-button">
+                    <a href="#">Collaborate</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <p><span class="project-text-sub">Name: </span>Social Media Marketing Campaign</p>
+                <p><span class="project-text-sub">Description: </span>Create and manage a social media marketing campaign for a startup.</p>
+                <p><span class="project-text-sub">Skills Needed: </span>Marketing, Copywriting, Graphic Design</p>
+                <div class="collab-button">
+                    <a href="#">Collaborate</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <p><span class="project-text-sub">Name: </span>Video Production for Documentary</p>
+                <p><span class="project-text-sub">Description: </span>Produce and edit videos for a documentary project.</p>
+                <p><span class="project-text-sub">Skills Needed: </span>Video Editing, Graphic Design</p>
+                <div class="collab-button">
+                    <a href="#">Collaborate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include('./partials/footer'); %>
+</body>
+</html>

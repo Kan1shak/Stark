@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cookieParser = require("cookie-parser");
 // moved the user model to a separate file and import it here
 const users = require("./src/models/users");
-
+const connectRouter = require("./src/routes/connect");
 
 const app = express();
 
@@ -125,6 +125,9 @@ app.get("/services",(req,res)=>{
     res.render("services");
 })
 // services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+app.use("/connect",connectRouter);
 
 app.listen(3000,()=>{
 

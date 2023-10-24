@@ -1,0 +1,230 @@
+.navbar {
+    position: static;
+}
+
+
+.project-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+}
+
+#userProfiles {
+    padding: 100px;
+}
+
+.userProfile-heading {
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0.5rem;
+}
+
+.userProfile-sub {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 4rem;
+}
+
+.user-card-holder {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap ;
+}
+
+.user-card {
+    border: 1px solid #000000;
+    background-color: #313131;
+    padding: 10px;
+    padding-top: 30px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 400px;
+    width: 275px;
+    border-radius: 20px;
+    gap: 1rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease-in-out;
+}
+
+.user-card-text {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 5;
+    gap: 5px;
+}
+
+.connect-button {
+    flex: 3 ;
+}
+
+.user-card p {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.user-card img {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+.user-image-holder {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-card a {
+    background: var(--accent-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 32px;
+    font-size: 1rem;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid #00000000;
+    transition: all 0.2s ease-in-out;
+}
+
+.user-card a:hover {
+    border-radius: 20px;
+    background-color: #6044a0;
+}
+
+.user-card:hover {
+    scale: 1.02;
+}
+
+.user-card-text p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-card-text p .skill-border {
+    font-size: 12px;
+    background-color:#abf3cd24;
+    color: #fff;
+    border: 1px solid #abf3cd;
+    border-radius: 25px;
+    padding: 3px 7px;
+    margin: 0.15rem;
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* Project Lists */
+
+#projectListings {
+    padding: 100px;
+}
+
+.projectListings-heading {
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0.5rem;
+}
+
+.projectListings-sub {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 4rem;
+}
+
+.project-card-holder {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:3rem;
+    padding: 3rem;
+    justify-items: center;
+}
+
+.project-card-holder > .project-card {
+    font-size: 18px;
+    padding: 50px;
+    background-color: #313131;
+    color: #fff;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    min-width: 300px;
+    min-height: 300px;
+    transition: all 0.2s ease-in-out;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25)    ;
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.project-card-holder > .project-card:hover {
+    border: 1px solid #00000000;
+}
+
+.project-card-holder > .project-card  {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.collab-button {
+    margin-top: 1rem;
+}
+
+.collab-button a {
+    background: var(--accent-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 32px;
+    font-size: 1rem;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 600;
+    border: 1px solid #00000000;
+    transition: all 0.2s ease-in-out;
+}
+
+.collab-button a:hover {
+    border-radius: 20px;
+    background-color: #6044a0;
+}
+
+.project-text-sub {
+    font-weight: 700;
+    color: #c8abf3;
+}
+
+
+@media screen and (max-width:1140px){
+    .user-card-holder{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width:768px){
+    .user-card-holder{
+        flex-direction: column;
+        align-items: center;
+    }
+}
