@@ -138,6 +138,10 @@
     transition: all 0.2s ease-in-out;
   }
   
+  .login-btn-container a {
+    text-decoration: none;
+  }
+
   .login-btn-container #login-btn:hover {
     border-radius: 10px;
   }

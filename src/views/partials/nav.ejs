@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="logo-holder">
-        <img src="images/logo.png" alt="logo">
+        <img src="/images/logo.png" alt="logo">
     </div>
     <div class="nav-links">
         <div class="nav-link-item">
@@ -30,10 +30,19 @@
         </div>  
     </div>
     <div class="login-btn-container">
-        <a href="/login"> 
-        <div id="login-btn">
-           LOGIN  </div>
-           </a>
+        <% if(userName) { %>
+        <a href="/profile"> 
+            <div id="login-btn">
+                <%= userName %>
+            </div>
+        </a>
+        <% } else { %>
+        <a href="/login">
+            <div id="login-btn">
+                LOGIN
+            </div>
+        </a>
+        <% } %>
     </div>
     <div class="hamburger">
         <div class="hamburger-line"></div>

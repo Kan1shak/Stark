@@ -25,7 +25,7 @@
                         </p>
                     </div>
                     <div class="connect-button">
-                        <a href="/user/<%= usersList[i]._id %>">Connect</a>
+                        <a href="connect/user/<%= usersList[i]._id %>">Connect</a>
                     </div>
                 </div>
             <% } %>
@@ -33,49 +33,33 @@
     </section>
 
     <section id="projectListings">
-        <h2 class="projectListings-heading">Available Projects</h2>
-        <p class="projectListings-sub">Choose the right project for you from the list of already published projects.</p>
+        <div class="project-list-heading">
+            <div class="project-list-head-text">
+                <h2 class="projectListings-heading">Available Projects</h2>
+                <p class="projectListings-sub">Choose the right project for you from the list of already published projects.</p>
+            </div>
+            <div class="project-list-head-button">
+                <a href="connect/new">Create Project</a>
+            </div>
+        </div>
         <div class="project-card-holder">
-            <div class="project-card">
-                <p><span class="project-text-sub">Name: </span>E-commerce Website Development</p>
-                <p><span class="project-text-sub">Description: </span>Build an e-commerce website for a small business.</p>
-                <p><span class="project-text-sub">Skills Needed: </span>Web Development, Graphic Design</p>
-                <div class="collab-button">
-                    <a href="#">Collaborate</a>
+            <% for(var i=0; i<projectsList.length; i++) { %>
+                <div class="project-card">
+                    <p><span class="project-text-sub"><%= projectsList[i].name %></p>
+                    <p><span class="project-text-sub">Description: </span><%= projectsList[i].description %></p>
+                    <p><span class="project-text-sub">Skills Needed: </span>
+                        <% for(var j=0; j<projectsList[i].skills.length; j++) { %>
+                        <span class="skill-border">
+                            <%= projectsList[i].skills[j] %>
+                        </span>
+                        <% } %>
+                    </p>
+                    <p><span class="project-text-sub">Posted By: </span><a href="connect/user/<%= projectsList[i].user._id %>"><%- projectsList[i].user.username %></a></p>
+                    <div class="collab-button">
+                        <a href="connect/project/<%= projectsList[i]._id %>">Collaborate</a>
+                    </div>
                 </div>
-            </div>
-            <div class="project-card">
-                <p><span class="project-text-sub">Name: </span>Community Event Planning</p>
-                <p><span class="project-text-sub">Description: </span>Plan and organize a community event for a local charity.</p>
-                <p><span class="project-text-sub">Skills Needed: </span>Event Planning, Volunteering, Marketing</p>
-                <div class="collab-button">
-                    <a href="#">Collaborate</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <p><span class="project-text-sub">Name: </span>Data Analysis for Research Project</p>
-                <p><span class="project-text-sub">Description: </span>Analyze data for a scientific research project.</p>
-                <p><span class="project-text-sub">Skills Needed: </span>Data Analysis, Programming</p>
-                <div class="collab-button">
-                    <a href="#">Collaborate</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <p><span class="project-text-sub">Name: </span>Social Media Marketing Campaign</p>
-                <p><span class="project-text-sub">Description: </span>Create and manage a social media marketing campaign for a startup.</p>
-                <p><span class="project-text-sub">Skills Needed: </span>Marketing, Copywriting, Graphic Design</p>
-                <div class="collab-button">
-                    <a href="#">Collaborate</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <p><span class="project-text-sub">Name: </span>Video Production for Documentary</p>
-                <p><span class="project-text-sub">Description: </span>Produce and edit videos for a documentary project.</p>
-                <p><span class="project-text-sub">Skills Needed: </span>Video Editing, Graphic Design</p>
-                <div class="collab-button">
-                    <a href="#">Collaborate</a>
-                </div>
-            </div>
+            <% } %>
         </div>
     </section>
     <%- include('./partials/footer'); %>

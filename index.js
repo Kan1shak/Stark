@@ -25,18 +25,17 @@ app.use(cookieParser());
 // login page -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 const isPresent =(req,res,next) =>{
-      if(token){
-        next();
-      }
-      else{
-        res.redirect("/login");
-      }
-}
+    let token = req.cookies.token;
+     if(token){
+       next();
+     }
+     else{
+       res.redirect("/login");
+     }
+ }
 
 const check =async(req,res,next)=>{
-
     let a={username:req.body.USERNAME,password:req.body.PASSWORD}
-
     const b = users.findOne(a).then((b)=>{
         if(b)
         {
@@ -67,7 +66,7 @@ app.get("/login",(req,res)=>{
     res.render("login");
 })
 
-app.get("/done",(req,res)=>{
+app.get("/done",isPresent,(req,res)=>{
 
     res.render("done");
 })
@@ -104,13 +103,13 @@ app.post("/login",check,(req,res)=>{
 
 // after login-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-app.get("/afterhome",(req,res)=>{
+app.get("/afterhome",isPresent,(req,res)=>{
 
     userName=user.username;
     res.render("afterhome",{userName});
 })
 
-app.get("/profile",(req,res)=>{
+app.get("/profile",isPresent,(req,res)=>{
 
     res.send("profile");
 })
@@ -120,14 +119,14 @@ app.get("/profile",(req,res)=>{
 
 // services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-app.get("/services",(req,res)=>{
+app.get("/services",isPresent,(req,res)=>{
 
     res.render("services");
 })
 // services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-app.use("/connect",connectRouter);
+app.use("/connect",isPresent,connectRouter);
 
 app.listen(3000,()=>{
 
