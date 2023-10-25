@@ -21,6 +21,7 @@ label {
     font-weight: 500;
     color: var(--accent-color);
     text-align: left;
+    padding-bottom: 1rem;
 }
 
 input, textarea, button {
@@ -61,7 +62,7 @@ button:hover {
 
 .new-connect-heading {
     padding: 0 25vw;
-    font-size: 64px;
+    font-size: 56px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -70,9 +71,15 @@ button:hover {
 
 .new-connect-sub {
     padding: 0 25vw;
-    font-size: 24px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     margin-bottom: 2rem;
+}
+.buttonposition{
+    display:flex;
+    align-items:center ;
+    justify-content: center;
+    padding-top: 1.5rem;
 }

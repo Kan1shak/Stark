@@ -9,7 +9,7 @@ const messageSchema= new mongoose.Schema({
     profile: Object,
     projects: [Object],
     skills: [String],
-    services: [Object],
+    services:[Object],
 
 })
 

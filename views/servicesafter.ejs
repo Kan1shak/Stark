@@ -42,7 +42,7 @@
                 </div>  
             </div>
             <div class="login-btn-container">
-                <a href="/login"><div id="login-btn"><%= locals.userName%></div></a>
+                <a href="/login" style="text-decoration:none;"><div id="login-btn"><%= locals.userName%></div></a>
             </div>
             <div class="hamburger">
                 <div class="hamburger-line"></div>
@@ -89,15 +89,17 @@
                 <p>Browse from one of these popular services to find exactly what you are looking for.  </p>
             </div>
             <div class ="services">
+                <a href ="/servicedetailai">
             <div class ="cards card">
                 <div class="overlay">
                     <div>
-                        <a href ="/ai"></a>
-                        <h1 class ="title"> AI Artists </h1>
-                        <h3 class="disc">Add talent to AI</h3>
+                        <h1 class ="title">  AI artists </h1>
+                        <h3 class="disc"> Add talent to </h3>
                     </div>
                 </div>
             </div>
+            </a>
+            <a href ="/servicedetaillogo">
             <div class ="cards1 card">
                 <div class="overlay">
                     <div>
@@ -106,6 +108,8 @@
                     </div>
                 </div>
             </div>
+            </a>
+            <a href ="/servicedetailwp">
             <div class ="cards2 card">
                 <div class="overlay">
                     <div>
@@ -114,6 +118,8 @@
                     </div>
                 </div>
             </div>
+        </a>
+        <a href ="/servicedetailvo">
             <div class ="cards3 card">
                 <div class="overlay">
                     <div>
@@ -122,6 +128,8 @@
                     </div>
                 </div>
             </div>
+        </a>
+        <a href ="/servicedetailve">
             <div class ="cards4 card">
                 <div class="overlay">
                     <div>
@@ -130,6 +138,8 @@
                     </div>
                 </div>
             </div>
+        </a>
+        <a href ="/servicedetailtrans">
             <div class ="cards5 card">
                 <div class="overlay">
                     <div>
@@ -138,6 +148,8 @@
                     </div>
                 </div>
             </div>
+        </a>
+        <a href ="/servicedetailsm">
             <div class ="cards6 card">
                 <div class="overlay">
                     <div>
@@ -146,6 +158,8 @@
                     </div>
                 </div>
             </div>
+        </a>
+        <a href ="/servicedetailDE">
             <div class ="cards7 card">
                 <div class="overlay">
                     <div>
@@ -155,10 +169,11 @@
                 </div>
             </div>
             </div>
-            <div class ="more">
-                <a href="#" class="btn btn-white btn-animate">See More</a> 
-            </div>
-        </section>
+        </a>
+        <div class ="more">
+            <a href="/servicedetail" class="btn btn-white btn-animate">See More</a> 
+         </div>
+     </section>
 
         <footer class="footer">
             <div class="footer-links">
@@ -206,4 +221,5 @@
             </div>
         </footer>
 </body>
+
 </html>

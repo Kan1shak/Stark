@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/head'); %>
+<link rel="stylesheet" href="/css/newService.css">
+<title>Deploy a new Service</title>
+</head>
+<body>
+    <%- include('./partials/nav'); %>
+    <h2 class="new-connect-heading">Create a New Service</h2>
+    <p class="new-connect-sub"> Deploy a new service to find the one who can help </p>
+    <div class="form-holder">
+        <form action="/newservice" method="post">
+            <label for="name">Service</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="10" cols="50" required></textarea><br><br>
+            <label for="skills">Skills Needed</label>
+            <input type="text" id="skills" name="skills" required><br><br>
+            <label for="serviceType">Service Type</label>
+            <select name="ServiceType" id="select" class="drop">
+                <option value="">--Please choose an option--</option>
+                <option value="ai">Artificial Intelligence</option>
+                <option value="logo">Logo Design</option>
+                <option value="wordpress">Wordpress</option>
+                <option value="voice over">Voice over</option>
+                <option value="video explainer">Video Explainer</option>
+                <option value="translator">Translator</option>
+                <option value="social media">Social Media</option>
+                <option value="data entry">Data Entry</option>
+                <option value="others">Others</option>
+            </select>
+            <div class = "buttonposition">
+                <button type="submit">Post</button>
+            </div>
+            </form>
+            </div>
+ <%- include('./partials/footer'); %>
+</body>
+</html>

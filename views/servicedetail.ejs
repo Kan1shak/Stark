@@ -2,54 +2,110 @@
 <html lang="en">
 <head>
 <%- include('./partials/head'); %>
-<link rel="stylesheet" href="css/servicedetail.css">
+<link rel="stylesheet" href="css/connect.css">
 <title>services</title>
 </head>
 <body>
-    <%- include('./partials/nav'); %>
-    <section id="userProfiles">
-        <h2 class="userProfile-heading">Find Collaborators</h2>
-        <p class="userProfile-sub">Find projects, share visions, and goals, and join others passionate about similar projects.</p>
-        <div class="user-card-holder">
-                <div class="user-card">
-                    <div class="user-image-holder"><img src="images/user.jpg" alt="name %>"></div>
-                    <div class="user-card-text">
-                        <h3>name %></h3>
-                        <p>Skills:  
-                            <span class="skill-border">
-                            </span>
-                        </p>
-                    </div>
-                    <div class="connect-button">
-                        <a href=>Connect</a>
-                    </div>
-                </div>
+    <nav class="navbar">
+        <div class="logo-holder">
+            <img src="/images/logo.png" alt="logo">
         </div>
+        <div class="nav-links">
+            <div class="nav-link-item">
+                <a href="/afterhome">Home</a>
+            </div>
+            <div class="nav-link-item">
+                <a href="/services">Services</a>
+            </div>
+            <div class="nav-link-item">
+                <a href="#">Tasks</a>
+                <div class = "dropdown">
+                    <ul style="list-style-type:none;">   
+                    <li><a href="#">Challenging Tasks</a></li>
+                      <li><a href="#">Certification Tasks</a></li> 
+                       <li><a href="#">Practice Tasks</a></li> 
+                       <li><a href="#"> Tutorial </a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/afterhome#FAQ">
+            <div class="nav-link-item">
+                FAQ
+            </div>
+        </a>
+            <div class="nav-link-item">
+                <a href="/connect">Connect</a>
+            </div>  
+        </div>
+        <div class="login-btn-container">
+            <a href="/newservice"  style="text-decoration:none";> 
+                <div id="login-btn">
+                    NEW SERVICE
+                </div>
+            </a>
+        </div>
+        <div class="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </nav>
+    <section class="hamburger-menu">
+        <div class="hamburger-links">
+            <div class="nav-link-item">
+                <a href="#">Home</a>
+            </div>
+            <div class="nav-link-item">
+                <a href="#">Services</a>
+            </div>
+            <div class="nav-link-item">
+                <a href="#">Tasks</a>
+                <div class = "dropdown">
+                    <ul style="list-style-type:none;">   
+                    <li><a href="#">Challenging Tasks</a></li>
+                      <li><a href="#">Certification Tasks</a></li> 
+                       <li><a href="#">Practice Tasks</a></li> 
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-link-item">
+                <a href="#">FAQ</a>
+            </div>
+            <div class="nav-link-item">
+                <a href="#">Connect</a>
+            </div>
+        </div>
+        <div class="hamburger-login-btn-container">
+            <p>Already a user? <a href="">Login</a></p>
+            <div id="hamburger-login-btn">Get Started -></div>
+        </div>  
     </section>
-
     <section id="projectListings">
         <div class="project-list-heading">
             <div class="project-list-head-text">
-                <h2 class="projectListings-heading">Available Projects</h2>
-                <p class="projectListings-sub">Choose the right project for you from the list of already published projects.</p>
-            </div>
-            <div class="project-list-head-button">
-                <a href="connect/new">Create Project</a>
+                <h2 class="projectListings-heading">Available Services</h2>
+                <p class="projectListings-sub"></p>
             </div>
         </div>
         <div class="project-card-holder">
+            <% for(var i=0; i<docsList.length; i++) { %>
                 <div class="project-card">
-                    <p><span class="project-text-sub"></p>
-                    <p><span class="project-text-sub">Description: </span></p>
+                    <p><span class="project-text-sub"><%= docsList[i].name %></p>
+                    <p><span class="project-text-sub">Description: </span><%= docsList[i].description %></p>
                     <p><span class="project-text-sub">Skills Needed: </span>
+                        <% for(var j=0; j<docsList[i].skills.length; j++) { %>
                         <span class="skill-border">
+                            <%= docsList[i].skills[j] %>
                         </span>
+                        <% } %>
                     </p>
-                    <p><span class="project-text-sub">Posted By: </span><a href="#"></a></p>
+            <p class ="user"><span class="project-text-sub">Posted By: </span><a href="connect/user/<%= servicesList[i].user._id %>"><%- servicesList[i].user.username %></a></p>
+            <p><span class="project-text-sub">Service Type: </span><%- docsList[i].servicetype %></p>
                     <div class="collab-button">
-                        <a href="#">collaborate</a>
+                        <a href="/openform">FILL IN</a>
                     </div>
                 </div>
+            <% } %>
         </div>
     </section>
     <%- include('./partials/footer'); %>

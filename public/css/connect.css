@@ -272,8 +272,13 @@ p .skill-border {
 }
 
 .project-text-sub {
+    text-decoration: none;
     font-weight: 700;
     color: #c8abf3;
+}
+.user{
+    text-decoration: none;
+    color:whitel
 }
 
 
