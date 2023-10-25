@@ -1,5 +1,5 @@
-import { projects } from '/home/akshatb/Stark/models/connect.js';
-import { users } from '/home/akshatb/Stark/models/users.js';
+import { projects } from '../models/connect.js';
+import { users } from '../models/users.js';
 import jwt from "jsonwebtoken"; 
 
 const getUsername = async (id)=>{

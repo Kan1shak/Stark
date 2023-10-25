@@ -22,7 +22,7 @@ const __dirname = dirname(__filename);
 
 // setting Middlewares
 
-app.use(express.static(path.join("/home/akshatb/Stark/public")));
+app.use(express.static(path.join("public")));
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use("/connect",connectRouter);

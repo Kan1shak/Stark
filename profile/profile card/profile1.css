@@ -43,7 +43,7 @@
 
 }
 .front{
-    background: url(/waste/avatar7.png);
+    background: url(../waste/avatar7.png);
     background-size: cover;
     background-position: center;
     padding: 60px 40px;
