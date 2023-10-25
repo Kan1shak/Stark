@@ -18,18 +18,3 @@ let li = document.querySelectorAll(".faq-text li");
        clickedLi.classList.toggle("showAnswer");
       });
     }
-
-// const featureHeading = document.querySelector('.features-heading .emphasis');
-// console.log(featureHeading);
-// const mediaQuery = window.matchMedia('(max-width: 1024px)');
-// function handleTabletChange(e) {
-//   if (e.matches) {
-//     featureHeading.textContent = 'every thing';
-//   }
-//   else {
-//     featureHeading.textContent = 'everything';
-//   }
-// }
-
-// mediaQuery.addListener(handleTabletChange);
-// handleTabletChange(mediaQuery);
