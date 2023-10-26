@@ -61,7 +61,7 @@ app.get("/afterhome",async(req,res)=>{
 
 app.get("/profile",(req,res)=>{
 
-    res.send("profile");
+    res.render("profilepage");
 })
 
 
