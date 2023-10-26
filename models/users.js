@@ -10,6 +10,8 @@ const messageSchema= new mongoose.Schema({
     projects: [Object],
     skills: [String],
     services:[Object],
+    job:String,
+    description:String,
 
 })
 

@@ -10,7 +10,7 @@
     
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/profileres.css">
-
+    <link rel="stylesheet" href="css/profile1.css">
     
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"></head>
 
@@ -24,16 +24,45 @@
         
         <header>
             <div class="brandLogo">
-                <figure><img src="../images/stark.png" alt="logo" width="50px" height="40px"></figure>
-                
-            </div>
+                <figure><img src="../images/stark.png" alt="logo" width="50px" height="40px">
+                    <a href=""><button class ="edit">Edit profile</button>
+                    </a>
+                </figure>
+        </div>
         </header>
 
 
        
         <section class="userProfile card">
             <div class="profile">
-                <figure><img src="../images/avatar7.png" alt="profile" width="250px" height="250px"></figure>
+                <div class="profile-container">
+                    <div class="profile-card">
+                        <div class="card-in">
+                            <div class="front">
+                                <h2><%=locals.username%></h2>
+                                <% if (!locals.job) { %>
+                                    <p> Enter Job Details </p>
+                                    <%} else { %>
+                                    <p> locals.job </p>
+                                    <% } %>
+                            </div>
+                            <div class="back">
+                                <img src="../images/hola (1).png"alt="">
+                                <h1><%=locals.username%></h1>
+                                <p>I'm a student currently studying <span>@VIT</span>.</p>
+                                
+                                <div class="row">
+                                    <a href="/logout">
+                                    <button>logout</button>
+                                    </a>
+                                    <a href="https://github.com/Kan1shak/Stark"><img src="../images/github-mark.png"></a>
+                                    <a href="https://in.linkedin.com/"><img src="../images/pngwing.com.png"></a>
+                                </div>
+                            </div>
+                                
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -70,14 +99,13 @@
         <!-- ////////////USER DETAILS/////////////// -->
         <section class="userDetails card">
             <div class="userName">
-                <h1 class="name">Rishabh Kumar</h1>
-                <div class="map">
-                    <i class="ri-map-pin-fill ri"></i>
-                    
-                    
-                </div>
-                <p>Web Developer</p>
-                <p1>I'm a student currently studying <span>@VIT</span>.</p1>
+                <h1 class="name"><%= locals.name%></h1>
+                    <p> <%=locals.job%> </p>
+                    <% if (!locals.desciption) { %>
+                        <p1 placeholder=>Enter your bio</p1>
+                        <%} else { %>
+                        <p1> locals.description </p1>
+                        <% } %>
             </div>
 
           
@@ -112,7 +140,7 @@
 
                     <li class="email">
                         <h1 class="label">E-mail:</h1>
-                        <span class="info">rishabh@gmail.com</span>
+                        <span class="info"><%=locals.email%></span>
                     </li>
 
                     <li class="site">

@@ -5,16 +5,14 @@
     box-sizing: border-box;
 }
 
-.container{
+.profile-container{
     width: 100%;
-    height: 100vh;
     background: transparent;
     padding: 10px;
 }
-.card{
+.profile-card{
     width: 350px;
-    height: 515px;
-    margin: 100px auto 0;
+    height: 40vh;
     position: relative;
     perspective: 1000px;
     
@@ -43,26 +41,27 @@
 
 }
 .front{
-    background: url(../waste/avatar7.png);
+    background: url(../images/avatar7.png);
     background-size: cover;
     background-position: center;
-    padding: 60px 40px;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    color: wheat;
+    color: rgb(214, 174, 174);
     border: solid rgba(0, 0, 0, 0.333);
-    box-shadow: 0 0 17px 10px rgb(0 0 0 / 30%);
+    box-shadow: 0 0 17px 10px rgb(0 0 0 / 30%),0 0 0px 1px rgba(255, 255, 255, 1.0);
     
     
 }
 
 .front h2{
-    font-weight: 600;
-    font-size: 25px;
+
+    font-weight: 650;
+    font-size: 28px;
 }
 .front p{
-    color: #ccc;
     font-size: 15px;
 }
 
@@ -71,7 +70,7 @@
     color:white;
     padding: 20px 40px;
     transform:rotateY(180deg) ;
-    box-shadow: 0 0 17px 10px rgb(0 0 0 / 30%);
+    box-shadow: 0 0 17px 10px rgb(0 0 0 / 30%),0 0 0px 1px rgba(255, 255, 255, 1.0);
     
 }
 
@@ -122,8 +121,15 @@
     font-size: 14px;
     margin-right: 15px;
     box-shadow: 0 8px 10px rgba(120, 0, 173, 0.3);
+    transition: all 0.2s ease-in-out;
 }
-.back a{
+
+.back button:hover {
+    background: #520075;
+    border-radius: 10px;
+}
+
+.back a:not(:first-child){
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -134,9 +140,29 @@
     margin: 0 5px;
     background: white;
 }
+
+
+
 .back a img{
     width: 100%;
 }
-.card:hover .card-in{
+.profile-card:hover .card-in{
+
     transform: rotateY(180deg);
+}
+.edit{
+background: #7800ad;
+color: #fff;
+border: 0;
+outline: 0;
+padding: 8px 25px;
+border-radius: 30px;
+font-size: 14px;
+margin-right: 15px;
+box-shadow: 0 8px 10px rgba(120, 0, 173, 0.3);
+transition: all 0.2s ease-in-out;
+}
+.edit:hover {
+    background: #520075;
+    border-radius: 10px;
 }

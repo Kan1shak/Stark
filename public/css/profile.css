@@ -97,7 +97,6 @@ body {
     "work_skills timeline_about"
     "work_skills timeline_about";
   width: 85%;
-  height: 90vh;
   background: var(--glass-bg);
   padding: var(--p-1-5);
   gap:20px;
@@ -135,14 +134,26 @@ header {
   padding: var(--p-1-5);
 }
 
+.container .card.userProfile {
+  border: 0px solid black;
+}
+
 /* /////////// LOGO //////// */
 .container header {
   padding: 0 var(--p-2-5);
 }
 
-.container header .brandLogo {
+
+.brandLogo figure {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+
+.container header .brandLogo a:not(:first-child) {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   
 }
 
@@ -164,6 +175,7 @@ header {
   justify-content: center;
   align-items: center;
   padding: 0;
+  height: 40vh;
   background: none;
   backdrop-filter: none;
   box-shadow: none;

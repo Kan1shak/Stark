@@ -11,6 +11,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import json from "jsonwebtoken";
 import { users } from "./models/users.js";
+import { now } from "mongoose";
 
 const app = express();
 
@@ -59,9 +60,18 @@ app.get("/afterhome",async(req,res)=>{
         res.redirect("/");
 })
 
-app.get("/profile",(req,res)=>{
-
-    res.render("profilepage");
+app.get("/profile",async(req,res)=>{
+    let {token} = req.cookies;
+    if(!token)
+    res.redirect("/login");
+    const decoded = json.verify(token,"arimeee");
+    const user = req.user = await users.findById(decoded._id);
+    let name = user.name;
+    let email = user.email;
+    let username = user.username;
+    let job = user.job;
+    let description = user.description;
+    res.render("profilepage",{name,email,username,job});
 })
 
 
@@ -93,6 +103,16 @@ app.get("/services",async(req,res)=>{
 }
 )
 // services page-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+app.get("/logout",async(req,res)=>{
+    res.cookie("token",null,{
+        httpOnly:true,
+        expires:new Date(Date.now()),
+
+    });
+    res.redirect("/");
+
+})
 
 app.listen(3000,()=>{
 
