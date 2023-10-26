@@ -91,7 +91,7 @@
         <div class="project-card-holder">
             <% for(var i=0; i<docsList.length; i++) { %>
                 <div class="project-card">
-                    <p><span class="project-text-sub"><%= docsList[i].name %></p>
+                    <p><span class="project-text-sub " style="text-decoration: underline;"><%= docsList[i].name %></p>
                     <p><span class="project-text-sub">Description: </span><%= docsList[i].description %></p>
                     <p><span class="project-text-sub">Skills Needed: </span>
                         <% for(var j=0; j<docsList[i].skills.length; j++) { %>
@@ -100,7 +100,7 @@
                         </span>
                         <% } %>
                     </p>
-            <p class ="user"><span class="project-text-sub">Posted By: </span><a href="connect/user/<%= servicesList[i].user._id %>"><%- servicesList[i].user.username %></a></p>
+            <p class ="user"><span class="project-text-sub">Posted By: </span><a href="connect/user/<%= docsList[i].user._id %>"><%- docsList[i].username %></a></p>
             <p><span class="project-text-sub">Service Type: </span><%- docsList[i].servicetype %></p>
                     <div class="collab-button">
                         <a href="/openform">FILL IN</a>

@@ -12,6 +12,18 @@ const messageSchema= new mongoose.Schema({
     services:[Object],
     job:String,
     description:String,
+    sd:String,
+    phone:Number,
+    description:String,
+    ad1:String,ad2:String,
+    state:String,country:String,
+    pc:String,
+    area:String,
+    edu:String,
+    git:String,
+    link:String,
+    gender:String,
+    dob:String,
 
 })
 

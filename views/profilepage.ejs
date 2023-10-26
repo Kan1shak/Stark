@@ -24,9 +24,9 @@
         
         <header>
             <div class="brandLogo">
-                <figure><img src="../images/stark.png" alt="logo" width="50px" height="40px">
-                    <a href=""><button class ="edit">Edit profile</button>
-                    </a>
+                <figure><a href="/"><img src="../images/stark.png" alt="logo" width="50px" height="40px"></a>
+                    <a href="/logout"><button class ="edit">logout</button>
+                    </a
                 </figure>
         </div>
         </header>
@@ -40,23 +40,18 @@
                         <div class="card-in">
                             <div class="front">
                                 <h2><%=locals.username%></h2>
-                                <% if (!locals.job) { %>
-                                    <p> Enter Job Details </p>
-                                    <%} else { %>
-                                    <p> locals.job </p>
-                                    <% } %>
+                                <%=  locals.job || 'Enter Short Your Job' %>
                             </div>
                             <div class="back">
                                 <img src="../images/hola (1).png"alt="">
                                 <h1><%=locals.username%></h1>
-                                <p>I'm a student currently studying <span>@VIT</span>.</p>
-                                
+                                    <%=  locals.sd || 'Enter Short Description' %>
                                 <div class="row">
-                                    <a href="/logout">
-                                    <button>logout</button>
+                                    <a href="/editprofile">
+                                    <button>Edit profile</button>
                                     </a>
-                                    <a href="https://github.com/Kan1shak/Stark"><img src="../images/github-mark.png"></a>
-                                    <a href="https://in.linkedin.com/"><img src="../images/pngwing.com.png"></a>
+                                    <a href="<%=locals.git%>"><img src="../images/github-mark.png"></a>
+                                    <a href="<%=locals.link%>"><img src="../images/pngwing.com.png"></a>
                                 </div>
                             </div>
                                 
@@ -74,9 +69,9 @@
             <div class="work">
                 <h1 class="heading">work</h1>
                 <div class="primary">
-                    <h1>Stark</h1>
+                    <h1><%=locals.job%></h1>
                     
-                    <p>Vit Bhopal <br> Sehore, Bhopal</p>
+                    <p><%=locals.ad1%><br> <%=locals.ad2%></p>
                     
                 </div>
 
@@ -87,10 +82,13 @@
             <div class="skills">
                 <h1 class="heading">Skills</h1>
                 <ul>
-                    <li style="--i:0">Android</li>
+                    <!-- <li style="--i:0">Android</li>
                     <li style="--i:1">Web-Design</li>
                     <li style="--i:2">UI/UX</li>
-                    <li style="--i:3">Video Editing</li>
+                    <li style="--i:3">Video Editing</li> -->
+                    <% for (let i=0; i < 6 && i < skills.length; i++) { %>
+                        <li style="--i:<%= i %>"><%= locals.skills[i] %></li>
+                    <% } %>
                 </ul>
             </div>
         </section>
@@ -100,12 +98,7 @@
         <section class="userDetails card">
             <div class="userName">
                 <h1 class="name"><%= locals.name%></h1>
-                    <p> <%=locals.job%> </p>
-                    <% if (!locals.desciption) { %>
-                        <p1 placeholder=>Enter your bio</p1>
-                        <%} else { %>
-                        <p1> locals.description </p1>
-                        <% } %>
+                    <%= locals.description || 'Enter your bio' %>
             </div>
 
           
@@ -130,12 +123,12 @@
                 <ul>
                     <li class="phone">
                         <h1 class="label">Phone:</h1>
-                        <span class="info">1234566789</span>
+                        <span class="info"><%=locals.phone%></span>
                     </li>
 
                     <li class="address">
                         <h1 class="label">Address:</h1>
-                        <span class="info">Vit Bhopal, <br> Sehore, Bhopal-466114</span>
+                        <span class="info"><%=locals.ad1%><br> <%=locals.ad2%><br><%=locals.state%>, <%=locals.country%></span>
                     </li>
 
                     <li class="email">
@@ -145,7 +138,8 @@
 
                     <li class="site">
                         <h1 class="label">Site:</h1>
-                        <span class="info">https://kan1shak.github.io/Stark/</span>
+                        <span class="info" style="display: block;"><%=locals.git%></span>
+                        <span class="info" style="display: block;"><%=locals.link%></span>
                     </li>
                 </ul>
             </div>
@@ -155,12 +149,12 @@
                 <ul>
                     <li class="birthday">
                         <h1 class="label">Birthday:</h1>
-                        <span class="info">Dec 25, 2000</span>
+                        <span class="info"><%=locals.dob%></span>
                     </li>
 
                     <li class="sex">
                         <h1 class="label">Gender:</h1>
-                        <span class="info">Male</span>
+                        <span class="info"><%=locals.gender%></span>
                     </li>
                 </ul>
             </div>

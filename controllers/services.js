@@ -244,8 +244,8 @@ export const services_get = async (req,res)=>{
     }).catch((err)=>{
         console.log(err);
     });
-    services.find({servicetype:['others']}).then((docs)=>{
-    res.render("servicedetail",{docsList:docs,servicesList:serviceslist,usersList:usersList,userName:userName});
+    services.find({}).then((docs)=>{
+    res.render("servicedetail",{docsList:docs,usersList:usersList,userName:userName});
     }).catch((err)=>{
         console.log(err);
     })
@@ -270,9 +270,13 @@ export  const service_new_post = async (req,res)=>{
     if(!token)
     return res.render("index");
     const decoded=jwt.verify(token,"arimeee");
-    let a = {name:req.body.name,description:req.body.description,skills:req.body.skills,servicetype:req.body.ServiceType.split(","),user:decoded._id};
+    let a ={};
+    users.findById(decoded._id).then((b)=>{
+    a = {name:req.body.name,username:b.username,description:req.body.description,skills:req.body.skills.split(","),servicetype:req.body.ServiceType,user:decoded._id};
+
     services.create(a).then((response)=>{
         users.findById(decoded._id).then((b)=>{
+            response.username = b.username; 
             a.serviceId = response._id;
             b.services.push(a);
             b.save();
@@ -284,6 +288,7 @@ export  const service_new_post = async (req,res)=>{
         console.log(err);
     });
 }
+    )}
 
 export const openform = (req,res)=>{
     {let {token} = req.cookies;

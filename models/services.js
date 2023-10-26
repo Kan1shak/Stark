@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const servicesSchema = mongoose.Schema({
+    username:String,
     name:String,
     description:String,
     skills:[String],

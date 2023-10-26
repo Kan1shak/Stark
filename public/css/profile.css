@@ -140,7 +140,7 @@ header {
 
 /* /////////// LOGO //////// */
 .container header {
-  padding: 0 var(--p-2-5);
+  padding: 0 0.5rem 0 2.5rem;
 }
 
 
@@ -232,7 +232,7 @@ header {
   margin-bottom: var(--m-1-8);
   font-size: 1.8rem;
   color: #fff;
-  line-height: 1.6rem;
+  line-height: 2.5rem;
 }
 
 /* ///////SKILLS//////// */
@@ -280,8 +280,18 @@ header {
   padding: var(--p-1-5) var(--p-2-5);
 }
 
+.userDetails.card {
+  padding: 30px;
+}
+
 .userDetails .userName h1 {
   font-size: var(--xxxl-fs);
+  text-decoration: underline;
+}
+
+.userDetails .userName {
+
+  font-size: 16px;
 }
 
 .userDetails .userName .map {
@@ -368,12 +378,13 @@ header {
   background: #735ca8;
 }
 
-.timeline_about .contact_info .heading,
-.timeline_about .basic_info .heading {
-  font-size: 1.9rem;
+.timeline_about .contact_Info .heading,
+.timeline_about .basic_info .heading
+{
+  font-size: 1.5  rem;
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: var(--m-1-5);
+  margin-bottom: 5px;
 }
 
 .timeline_about .contact_info ul,
@@ -403,4 +414,7 @@ header {
 .timeline_about .contact_info ul .email span,
 .timeline_about .contact_info ul .site span {
   color: #fff;
+}
+.basic_info .heading{
+  padding-top: 1rem;
 }

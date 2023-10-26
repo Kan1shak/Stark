@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import loginrouter from "./routes/login.js";
 import servicerouter from "./routes/services.js";
 import connectrouter from "./routes/connect.js";
+import profilerouter from "./routes/profile.js";
 import { isPresent } from "./controllers/login.js";
 import {connectDB} from "./data/database.js";
 import  connectRouter  from "./routes/connect.js"
@@ -12,6 +13,7 @@ import { dirname } from 'path';
 import json from "jsonwebtoken";
 import { users } from "./models/users.js";
 import { now } from "mongoose";
+
 
 const app = express();
 
@@ -35,6 +37,7 @@ app.use(express.static(__dirname + '/views'));
 app.use(loginrouter);
 app.use(servicerouter);
 app.use(connectrouter);
+app.use(profilerouter);
 
 // before login ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -59,21 +62,6 @@ app.get("/afterhome",async(req,res)=>{
     else
         res.redirect("/");
 })
-
-app.get("/profile",async(req,res)=>{
-    let {token} = req.cookies;
-    if(!token)
-    res.redirect("/login");
-    const decoded = json.verify(token,"arimeee");
-    const user = req.user = await users.findById(decoded._id);
-    let name = user.name;
-    let email = user.email;
-    let username = user.username;
-    let job = user.job;
-    let description = user.description;
-    res.render("profilepage",{name,email,username,job});
-})
-
 
 //after login-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
