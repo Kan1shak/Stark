@@ -73,9 +73,28 @@ export  const connect_user_one_get = async (req,res)=>{
     let {token} = req.cookies;
     const decoded=jwt.verify(token,"arimeee");
     const userName = await getUsername(decoded._id);
-    users.findById(req.params.id).populate("projects").then((a)=>{
-        if (a) {
-        res.render("userConnect",{user:a, userName:userName});
+    users.findById(req.params.id).populate("projects").then((user)=>{
+        if (user) {
+    let name = user.name;
+    let email = user.email;
+    let phone = user.phone;
+    let username = user.username;
+    let job = user.job;
+    let description = user.description;
+    let sd = user.sd;
+    let ad2= user.ad2;
+    let ad1=user.ad1;
+    let state = user.state;
+    let country = user.country;
+    let pc=user.pc;
+    let area= user.area;
+    let edu = user.edu;
+    let skills = user.skills;
+    let git = user.git;
+    let link = user.link;
+    let gender = user.gender;
+    let dob = user.dob;
+        res.render("profileother",{name,email,username,job,sd,description,phone,git,link,skills,gender,dob,ad1,ad2,country,state});
         } else {
             res.redirect("/connect");
         }

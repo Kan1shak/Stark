@@ -103,7 +103,7 @@
             <p class ="user"><span class="project-text-sub">Posted By: </span><a href="connect/user/<%= docsList[i].user._id %>"><%- docsList[i].username %></a></p>
             <p><span class="project-text-sub">Service Type: </span><%- docsList[i].servicetype %></p>
                     <div class="collab-button">
-                        <a href="/openform">FILL IN</a>
+                        <a href="/openform/<%=docsList[i]._id%>">FILL IN</a>
                     </div>
                 </div>
             <% } %>

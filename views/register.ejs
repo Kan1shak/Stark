@@ -23,21 +23,24 @@
             <h3 class="title">User Sign Up</h3>
             <div class="text-input">
                 <i class="ri-user-fill"></i>
-                <input type="text" name="Name" placeholder="Name">
+                <input type="text" name="Name" placeholder="Name" value="<%=locals.name%>">
             </div>
             <div class="text-input">
                 <i class="ri-mail-fill"></i>
-                <input type="email" name = "email" placeholder="Email">
+                <input type="email" name = "email" placeholder="Email" value="<%=locals.email%>">
             </div>
             <div class="text-input">
                 <i class="ri-user-fill"></i>
-                <input type = "Username"  name= "username" placeholder="Username">
+                <input type = "Username"  name= "username" placeholder="Username" value="<%=locals.username%>">
             </div>
             <div class="text-input">
                 <i class="ri-lock-fill"></i>
                 <input type="password" name="password" placeholder="Password">
             </div>
             <button type ="submit" class ="signup-btn">SIGN UP</button>
+            <p>
+                <%= locals.message%>
+            </p>
             <div class="create">
                 <p> <a href="/login" class="signup-link" id="already">Already Have An Account</a></p>
                 <i class="ri-arrow-right-fill"></i>

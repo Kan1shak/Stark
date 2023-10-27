@@ -1,5 +1,6 @@
 import express from "express";
-import { renderService,services_get,newService,service_new_post, services_get_ai, services_get_wp, services_get_DE, services_get_logo, services_get_ve, services_get_vo, services_get_trans, services_get_sm, openform} from "../controllers/services.js";
+import { renderService,services_get,newService,service_new_post, services_get_ai, services_get_wp, services_get_DE, services_get_logo, services_get_ve, services_get_vo, services_get_trans, services_get_sm, openform, openformpost} from "../controllers/services.js";
+import { services_user_one_get } from "../controllers/services.js";
 
 
 const router = express.Router();
@@ -26,9 +27,11 @@ router.get("/newservice",newService);
 
 router.post("/newservice",service_new_post);
 
-router.get("/openform",openform);
+router.get("/openform/:id",openform);
 
-router.post("/openform",)
+router.post("/openform/:id",openformpost);
+
+router.get("/user/:id",services_user_one_get);
 
 // router.post("/services/new",services_new_post);
 

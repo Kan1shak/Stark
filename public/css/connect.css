@@ -179,7 +179,7 @@
 }
 
 p .skill-border {
-    font-size: 12px;
+    font-size: 10px;
     background-color:#abf3cd24;
     color: #fff;
     border: 1px solid #abf3cd;
@@ -188,7 +188,6 @@ p .skill-border {
     margin: 0.15rem;
     transition: all 0.2s ease-in-out;
 }
-
 
 /* Project Lists */
 

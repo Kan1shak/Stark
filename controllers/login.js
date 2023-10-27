@@ -57,10 +57,16 @@ export const register_post = async(req,res)=>{
 
     let userData= {name:req.body.Name,email:req.body.email,username:req.body.username,password:req.body.password,profile:{}};
     let email=userData.email;
+    let username=userData.username;
     let user = await users.findOne({email});
     if(user)
     {
-        return res.redirect("/login");
+        return res.render("login",{message:"Email is already registered"});
+    }
+    user = await users.findOne({username});
+    if(username)
+    {
+        return res.render("register", {message:"Username already taken",email:userData.email,name:userData.name});
     }
     const hashedpassword = await bcrypt.hash(userData.password,10);
     

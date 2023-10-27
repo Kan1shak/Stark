@@ -218,6 +218,7 @@ a.forgot {
 .create i {
     color: #9a9a9a;
     margin-left: 10px;
+    padding-top: 2rem;
 }
 
 p {
@@ -226,8 +227,10 @@ p {
     cursor: pointer;
     user-select: none;
     text-decoration: none;
-    
-
+    }
+form p {
+    padding-top: 2rem;
+    color:rgb(241, 108, 108);
 }
 
 
