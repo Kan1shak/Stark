@@ -59,12 +59,13 @@ export const register_post = async(req,res)=>{
     let email=userData.email;
     let username=userData.username;
     let user = await users.findOne({email});
+    let userNameExists = await users.findOne({username});
     if(user)
     {
         return res.render("login",{message:"Email is already registered"});
     }
     user = await users.findOne({username});
-    if(username)
+    if(userNameExists)
     {
         return res.render("register", {message:"Username already taken",email:userData.email,name:userData.name});
     }
